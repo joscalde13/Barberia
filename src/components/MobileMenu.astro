@@ -1,0 +1,107 @@
+---
+---
+
+<!-- Mobile Menu Overlay -->
+<div 
+  id="mobile-menu" 
+  class="fixed top-0 right-0 bottom-0 w-full sm:w-80 bg-[var(--color-darker)] z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+>
+  <div class="flex flex-col h-full pt-20 px-8">
+    <ul class="flex flex-col gap-6">
+      <li>
+        <a 
+          href="#inicio" 
+          class="text-white text-2xl font-serif hover:text-[var(--color-gold)] transition-colors duration-300 block mobile-menu-link"
+        >
+          Inicio
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#servicios" 
+          class="text-white text-2xl font-serif hover:text-[var(--color-gold)] transition-colors duration-300 block mobile-menu-link"
+        >
+          Servicios
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#galeria" 
+          class="text-white text-2xl font-serif hover:text-[var(--color-gold)] transition-colors duration-300 block mobile-menu-link"
+        >
+          Galería
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#citas" 
+          class="text-white text-2xl font-serif hover:text-[var(--color-gold)] transition-colors duration-300 block mobile-menu-link"
+        >
+          Citas
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#contacto" 
+          class="text-white text-2xl font-serif hover:text-[var(--color-gold)] transition-colors duration-300 block mobile-menu-link"
+        >
+          Contacto
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Backdrop -->
+<div 
+  id="menu-backdrop" 
+  class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden backdrop-blur-sm"
+></div>
+
+<script>
+  const mobileMenu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('menu-backdrop');
+  const hamburger = document.getElementById('hamburger');
+  const menuLinks = document.querySelectorAll('.mobile-menu-link');
+  
+  // Close menu when clicking backdrop
+  if (backdrop && mobileMenu && hamburger) {
+    backdrop.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+      backdrop.classList.add('hidden');
+      
+      // Reset hamburger
+      const spans = hamburger.querySelectorAll('span');
+      spans[0].style.transform = 'rotate(0)';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'rotate(0)';
+    });
+    
+    // Toggle backdrop with menu
+    const observer = new MutationObserver(() => {
+      if (mobileMenu.classList.contains('translate-x-full')) {
+        backdrop.classList.add('hidden');
+      } else {
+        backdrop.classList.remove('hidden');
+      }
+    });
+    
+    observer.observe(mobileMenu, { attributes: true, attributeFilter: ['class'] });
+  }
+  
+  // Close menu when clicking a link
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileMenu && backdrop && hamburger) {
+        mobileMenu.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+        
+        // Reset hamburger
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'rotate(0)';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'rotate(0)';
+      }
+    });
+  });
+</script>

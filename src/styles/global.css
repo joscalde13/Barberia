@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables */
+:root {
+    --color-gold: #d4af37;
+    --color-dark: #1a1a1a;
+    --color-darker: #0d0d0d;
+    --color-light: #f5f5f5;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Base Typography */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* JotForm Custom Styling */
+iframe[src*="jotform"] {
+    border: none;
+    width: 100%;
+    min-height: 600px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b8941f;
+}

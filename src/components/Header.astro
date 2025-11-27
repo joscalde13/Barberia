@@ -1,0 +1,54 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-darker)] bg-opacity-95 backdrop-blur-sm">
+  <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#inicio" class="text-2xl font-bold text-[var(--color-gold)] font-serif">
+      Barbería  
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <ul class="hidden md:flex items-center gap-8">
+      <li><a href="#inicio" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300">Inicio</a></li>
+      <li><a href="#servicios" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300">Servicios</a></li>
+      <li><a href="#galeria" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300">Galería</a></li>
+      <li><a href="#citas" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300">Citas</a></li>
+      <li><a href="#contacto" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300">Contacto</a></li>
+    </ul>
+    
+    <!-- Hamburger Menu Button (Mobile) -->
+    <button 
+      id="hamburger" 
+      class="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center group"
+      aria-label="Toggle menu"
+    >
+      <span class="w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-[var(--color-gold)]"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-[var(--color-gold)]"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-[var(--color-gold)]"></span>
+    </button>
+  </nav>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('translate-x-full');
+      
+      // Animate hamburger to X
+      const spans = hamburger.querySelectorAll('span');
+      if (mobileMenu.classList.contains('translate-x-full')) {
+        spans[0].style.transform = 'rotate(0)';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'rotate(0)';
+      } else {
+        spans[0].style.transform = 'rotate(45deg) translateY(8px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+      }
+    });
+  }
+</script>

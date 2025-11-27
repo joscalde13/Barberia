@@ -1,0 +1,63 @@
+---
+const galleryImages = [
+  {
+    url: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800",
+    alt: "Corte de cabello profesional"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800",
+    alt: "Arreglo de barba"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800",
+    alt: "Interior de barbería"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800",
+    alt: "Herramientas de barbero"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800",
+    alt: "Estilo moderno"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800",
+    alt: "Servicio premium"
+  }
+];
+---
+
+<section id="galeria" class="py-20 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-[var(--color-darker)] mb-4">
+        Galería
+      </h2>
+      <div class="w-24 h-1 bg-[var(--color-gold)] mx-auto mb-6"></div>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        Descubre nuestro trabajo y el ambiente único de nuestra barbería
+      </p>
+    </div>
+    
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {galleryImages.map((image, index) => (
+        <div class="group relative overflow-hidden rounded-sm aspect-square cursor-pointer">
+          <img 
+            src={image.url} 
+            alt={image.alt}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
