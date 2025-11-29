@@ -2,40 +2,47 @@
 const services = [
   {
     title: "Corte Clásico",
-    description: "Corte tradicional con tijera y navaja, adaptado a tu estilo personal",
-    image: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800",
-    price: "Desde $25"
+    description:
+      "Corte tradicional con tijera y navaja, adaptado a tu estilo personal",
+    image: "/img/logojsoft.png",
+    price: "Desde $25",
   },
   {
     title: "Arreglo de Barba",
-    description: "Perfilado y cuidado profesional de barba con productos premium",
-    image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800",
-    price: "Desde $20"
+    description:
+      "Perfilado y cuidado profesional de barba con productos premium",
+    image:
+      "https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800",
+    price: "Desde $20",
   },
   {
     title: "Corte Moderno",
     description: "Estilos contemporáneos con técnicas de vanguardia",
-    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800",
-    price: "Desde $30"
+    image:
+      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800",
+    price: "Desde $30",
   },
   {
     title: "Afeitado Clásico",
     description: "Afeitado tradicional con toalla caliente y productos de lujo",
-    image: "https://images.unsplash.com/photo-1621607512214-68297480165e?q=80&w=800",
-    price: "Desde $35"
+    image:
+      "https://images.unsplash.com/photo-1621607512214-68297480165e?q=80&w=800",
+    price: "Desde $35",
   },
   {
     title: "Tratamiento Capilar",
     description: "Cuidado y nutrición profunda para tu cabello",
-    image: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800",
-    price: "Desde $40"
+    image:
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800",
+    price: "Desde $40",
   },
   {
     title: "Paquete Completo",
     description: "Corte, barba, afeitado y tratamiento en una sesión premium",
-    image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800",
-    price: "Desde $80"
-  }
+    image:
+      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800",
+    price: "Desde $80",
+  },
 ];
 ---
 
@@ -43,40 +50,45 @@ const services = [
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-[var(--color-darker)] mb-4">
+      <h2
+        class="text-4xl md:text-5xl font-bold text-[var(--color-darker)] mb-4"
+      >
         Nuestros Servicios
       </h2>
       <div class="w-24 h-1 bg-[var(--color-gold)] mx-auto mb-6"></div>
       <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-        Ofrecemos una amplia gama de servicios de grooming profesional con atención al detalle
+        Ofrecemos una amplia gama de servicios de grooming profesional con
+        atención al detalle
       </p>
     </div>
-    
+
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map((service) => (
-        <div class="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-          <div class="relative h-64 overflow-hidden">
-            <img 
-              src={service.image} 
-              alt={service.title}
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-            <div class="absolute bottom-4 left-4 text-white">
-              <p class="text-2xl font-bold text-[var(--color-gold)]">{service.price}</p>
+      {
+        services.map((service) => (
+          <div class="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
+              <div class="absolute bottom-4 left-4 text-white">
+                <p class="text-2xl font-bold text-[var(--color-gold)]">
+                  {service.price}
+                </p>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-[var(--color-darker)] mb-3 font-serif">
+                {service.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">{service.description}</p>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-[var(--color-darker)] mb-3 font-serif">
-              {service.title}
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-              {service.description}
-            </p>
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
